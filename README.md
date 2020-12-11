@@ -1,8 +1,8 @@
 # InstrumentalD role for Ansible
 
 [![GitHub workflow status](https://img.shields.io/github/workflow/status/ayltai/ansible-instrumentald/CI?style=flat)](https://github.com/ayltai/ansible-instrumentald/actions)
-[![Ansible quality score](https://img.shields.io/badge/quality-5-success)](https://galaxy.ansible.com/ayltai/fail2ban)
-[![Ansible role](https://img.shields.io/badge/role-ayltai.fail2ban-blue)](https://galaxy.ansible.com/ayltai/fail2ban)
+[![Ansible quality score](https://img.shields.io/badge/quality-5-success)](https://galaxy.ansible.com/ayltai/instrumentald)
+[![Ansible role](https://img.shields.io/badge/role-ayltai.instrumentald-blue)](https://galaxy.ansible.com/ayltai/instrumentald)
 ![Maintenance](https://img.shields.io/maintenance/yes/2020?style=flat)
 [![Release](https://img.shields.io/github/release/ayltai/ansible-instrumentald.svg?style=flat)](https://github.com/ayltai/ansible-instrumentald/releases)
 [![License](https://img.shields.io/github/license/ayltai/ansible-instrumentald.svg?style=flat)](https://github.com/ayltai/ansible-instrumentald/blob/master/LICENSE)
