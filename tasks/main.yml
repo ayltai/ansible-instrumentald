@@ -1,25 +1,25 @@
 ---
-- name: Download instrumentald package
+- name: Download InstrumentalD package
   get_url:
     url: "{{ instrumentald_package_url }}"
     dest: "{{ ansible_env.HOME }}"
     mode: 0644
 
-- name: Decompress instrumentald package
+- name: Decompress InstrumentalD package
   unarchive:
     src: "{{ ansible_env.HOME }}/{{ instrumentald_package_filename }}"
     dest: "{{ ansible_env.HOME }}"
     mode: 0644
     remote_src: yes
 
-- name: Move instrumentald files
+- name: Move InstrumentalD files
   copy:
     src: "{{ ansible_env.HOME }}/{{ instrumentald_package_name }}/opt/"
     dest: /opt/
     mode: preserve
     remote_src: yes
 
-- name: Set instrumentald executable permission
+- name: Set InstrumentalD executable permission
   file:
     path: "{{ item }}"
     mode: 0755
@@ -34,7 +34,7 @@
     - /opt/instrumentald/lib/ruby/bin/ruby_environment
     - /opt/instrumentald/lib/ruby/bin.real/ruby
 
-- name: Copy instrumentald configurations file
+- name: Copy InstrumentalD configurations file
   template:
     src: instrumentald.toml.j2
     dest: /etc/instrumentald.toml
@@ -52,12 +52,12 @@
     update_cache: yes
   when: ansible_facts['os_family'] == 'RedHat'
 
-- name: Create cron job for instrumentald
+- name: Create cron job for InstrumentalD
   cron:
     name: instrumentald
     special_time: reboot
-    job: /opt/instrumentald/instrumentald start
+    job: /opt/instrumentald/instrumentald -c /etc/instrumentald.toml -p /opt/instrumentald/instrumentald.pid -l /opt/instrumentald/instrumentald.log -s /opt/instrumentald/.instrumental_scripts -t /opt/instrumentald/ start
 
-- name: Start instrumentd
-  command: /opt/instrumentald/instrumentald start
+- name: Start InstrumentalD
+  command: /opt/instrumentald/instrumentald -c /etc/instrumentald.toml -p /opt/instrumentald/instrumentald.pid -l /opt/instrumentald/instrumentald.log -s /opt/instrumentald/.instrumental_scripts -t /opt/instrumentald/ start
   changed_when: no
