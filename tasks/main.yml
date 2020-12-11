@@ -56,22 +56,8 @@
   cron:
     name: instrumentald
     special_time: reboot
-    job: |
-      /opt/instrumentald/instrumentald \
-      -c /etc/instrumentald.toml \
-      -p /opt/instrumentald/instrumentald.pid \
-      -l /opt/instrumentald/instrumentald.log \
-      -s /opt/instrumentald/.instrumental_scripts \
-      -t /opt/instrumentald/ \
-      start
+    job: /opt/instrumentald/instrumentald -c /etc/instrumentald.toml -p /opt/instrumentald/instrumentald.pid -l /opt/instrumentald/instrumentald.log -s /opt/instrumentald/.instrumental_scripts -t /opt/instrumentald/ start
 
 - name: Start InstrumentalD
-  command: |
-    /opt/instrumentald/instrumentald \
-    -c /etc/instrumentald.toml \
-    -p /opt/instrumentald/instrumentald.pid \
-    -l /opt/instrumentald/instrumentald.log \
-    -s /opt/instrumentald/.instrumental_scripts \
-    -t /opt/instrumentald/ \
-    start
+  command: /opt/instrumentald/instrumentald -c /etc/instrumentald.toml -p /opt/instrumentald/instrumentald.pid -l /opt/instrumentald/instrumentald.log -s /opt/instrumentald/.instrumental_scripts -t /opt/instrumentald/ start
   changed_when: no
